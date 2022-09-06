@@ -1,0 +1,35 @@
+.card-title {
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #a6daed;
+    color: #253c78;
+}
+
+.card-btn {
+    background-color: #253c78;
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 2rem;
+    color: white;
+}
+
+.card-btn:hover {
+    background-color: #53a2be;
+    color: black;
+}
+
+.card {
+    border-radius: 20px;
+    border: none;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+
+.tag-text {
+    border: 2px solid #253c78;
+    border-radius: 20px;
+    padding: 0.25rem 0.5rem;
+    color: #53a2be;
+}
+
+.tag-heading {
+    color: #253c78;
+}

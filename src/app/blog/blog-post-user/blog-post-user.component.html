@@ -1,0 +1,13 @@
+<div class="my-5 row">
+	<div class="text-center" *ngIf="noBlogs"><h1>No Blogs Added by you!</h1></div>
+	<div class="col-lg-6" *ngFor="let blog of blogs">
+		<app-blog-post
+			[title]="blog.title"
+			[content]="blog.content"
+			[author]="blog.authorDetail.name"
+			[postedAt]="blog.postedAt"
+			[blogId]="blog._id"
+			[comments]="blog.comments"
+			[tags]="blog.tags"></app-blog-post>
+	</div>
+</div>

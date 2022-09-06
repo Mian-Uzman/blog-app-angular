@@ -1,0 +1,38 @@
+<form class="my-5 w-75 mx-auto">
+	<div class="mb-3">
+		<input
+			type="text"
+			class="form-control"
+			id="title"
+			[(ngModel)]="title"
+			name="title"
+			placeholder="Add Title" />
+	</div>
+	<div class="mb-3 d-flex gap-3">
+		<input
+			type="text"
+			class="form-control"
+			id="title"
+			[(ngModel)]="newTag"
+			name="tag"
+			placeholder="Add a Tag!" />
+		<button class="btn card-edit-btn d-flex" (click)="addNewTag()">
+			Add<i class="bi bi-plus-square ms-2"></i>
+		</button>
+	</div>
+	<div class="d-flex gap-2">
+		<h5 class="tag-heading mt-1">Tags:</h5>
+		<p *ngFor="let tag of tags" class="tag-text">{{ tag }}</p>
+	</div>
+	<div class="my-4">
+		<quill-editor
+			[styles]="{ height: '250px', borderRadius: '0px 0px 20px 20px' }"
+			[(ngModel)]="content"
+			name="content"
+			placeholder="Add Content to your blog!"></quill-editor>
+		<!-- <input type="text" class="form-control" id="content" [(ngModel)]="content" name="content" /> -->
+	</div>
+
+	<button (click)="editBlog()" class="btn card-edit-btn" *ngIf="isEdit">Edit Blog!</button>
+	<button (click)="addBlog()" class="btn card-edit-btn" *ngIf="!isEdit">Add Blog!</button>
+</form>

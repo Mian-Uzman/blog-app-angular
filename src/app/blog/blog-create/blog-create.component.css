@@ -1,0 +1,31 @@
+.card-edit-btn {
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 3.5rem;
+    color: white;
+}
+
+.card-edit-btn {
+    background-color: #253c78;
+}
+
+.card-edit-btn:hover {
+    background-color: #53a2be;
+    color: black;
+
+}
+
+input {
+    border-radius: 20px;
+}
+
+.tag-text {
+    border: 2px solid #253c78;
+    border-radius: 20px;
+    padding: 0.25rem 0.5rem;
+    color: #53a2be;
+}
+
+.tag-heading {
+    color: #253c78;
+}

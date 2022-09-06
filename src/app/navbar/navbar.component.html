@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+	<div class="container">
+		<a class="navbar-brand" routerLink="/home">
+			<img src="../../assets/blog-icon.png" alt="" />
+		</a>
+		<button
+			class="navbar-toggler"
+			type="button"
+			data-bs-toggle="collapse"
+			data-bs-target="#navbarNavAltMarkup"
+			aria-controls="navbarNavAltMarkup"
+			aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav ms-auto" *ngIf="authService.isLoggedIn">
+				<a class="nav-link mx-2" aria-current="page" routerLink="/home">All Blogs</a>
+				<a class="nav-link mx-2" routerLink="/user_blogs">My Blogs</a>
+				<a class="nav-link mx-2" routerLink="/new_blog">Add Blog</a>
+				<button class="btn mx-2 logout-btn" (click)="logout()">Logout</button>
+			</div>
+		</div>
+	</div>
+</nav>

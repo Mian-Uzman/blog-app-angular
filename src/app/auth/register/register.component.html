@@ -1,0 +1,42 @@
+<div id="login-form-wrap">
+	<div *ngIf="registerError" class="alert alert-danger" role="alert">Registeration Error</div>
+
+	<h2>Register</h2>
+	<form id="login-form">
+		<p>
+			<input
+				type="text"
+				id="username"
+				name="username"
+				placeholder="Username"
+				required
+				[(ngModel)]="name" /><i class="validation"><span></span><span></span></i>
+		</p>
+
+		<p>
+			<input
+				type="email"
+				id="email"
+				name="email"
+				placeholder="Email Address"
+				required
+				[(ngModel)]="email" /><i class="validation"><span></span><span></span></i>
+		</p>
+		<p>
+			<input
+				type="password"
+				id="password"
+				name="password"
+				placeholder="Password"
+				required
+				[(ngModel)]="password" /><i class="validation"><span></span><span></span></i>
+		</p>
+		<p>
+			<button id="register" (click)="register()">Register</button>
+		</p>
+	</form>
+	<div id="create-account-wrap">
+		<p>Already have an account? <a routerLink="/login">Login</a></p>
+		<p></p>
+	</div>
+</div>

@@ -1,0 +1,68 @@
+<div class="card mx-auto my-5" style="width: 55rem">
+	<div class="card-body">
+		<h4 class="card-title">{{ title }}</h4>
+		<p class="card-text" [innerHTML]="content"></p>
+
+		<div class="d-flex flow-row justify-content-between align-items-end mt-3">
+			<div class="d-flex flex-column">
+				<p class="card-subtitle mt-3 mb-1 text-muted fw-light postedAt">
+					Posted By:
+					<span class="fw-bold" style="color: #253c78">{{ authorDetail }}</span>
+				</p>
+				<p class="card-subtitle mb-4 text-muted fw-light">
+					Posted At:
+					<span class="fw-bold" style="color: #253c78">{{ dateArray[0] }}</span>
+				</p>
+				<div class="d-flex gap-2">
+					<h5 class="tag-heading mt-1">Tags:</h5>
+					<p *ngFor="let tag of tags" class="tag-text">{{ tag }}</p>
+				</div>
+			</div>
+			<div *ngIf="showButtons">
+				<button class="btn card-edit-btn" (click)="navigateToEdit()">
+					<i class="bi bi-pencil me-2"></i>Edit
+				</button>
+				<button class="btn ms-1 card-delete-btn" (click)="deleteBlog()">
+					<i class="bi bi-trash3 me-2"></i>Delete
+				</button>
+			</div>
+		</div>
+
+		<div class="comments">
+			<p class="text-muted mt-2">Comments: {{ comments.length }}</p>
+			<ul class="list-group list-group-flush">
+				<li
+					class="list-group-item d-flex justify-content-between align-items-center"
+					*ngFor="let comment of comments">
+					<div class="d-flex flex-column">
+						<p class="comment-user">
+							<i class="bi bi-person-circle me-1"></i>
+							{{ comment.userName }}
+						</p>
+						<p class="comment-content">{{ comment.comment }}</p>
+					</div>
+					<button
+						class="btn comment-delete-btn"
+						(click)="deleteComment(comment._id)"
+						*ngIf="comment.userDetail == userId ? true : false">
+						<i class="bi bi-trash3"></i>
+					</button>
+				</li>
+			</ul>
+
+			<div class="mt-3 d-flex">
+				<input
+					type="text"
+					class="form-control"
+					id="title"
+					[(ngModel)]="newComment"
+					name="comment"
+					placeholder="Add Comment" />
+
+				<button class="btn comment-edit-btn ms-2" (click)="addComment()">
+					<i class="bi bi-plus-square"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

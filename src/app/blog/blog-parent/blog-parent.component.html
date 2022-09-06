@@ -1,0 +1,17 @@
+<div class="my-5 row">
+	<h2 class="fw-light">
+		Welcome <span class="fw-normal" style="color: #253c78">{{ username }}</span
+		>!
+	</h2>
+	<h1 *ngIf="noBlogs">No Blogs Added</h1>
+	<div class="col-lg-6" *ngFor="let blog of blogs">
+		<app-blog-post
+			[title]="blog.title"
+			[content]="blog.content"
+			[author]="blog.authorDetail.name"
+			[postedAt]="blog.postedAt"
+			[blogId]="blog._id"
+			[comments]="blog.comments"
+			[tags]="blog.tags"></app-blog-post>
+	</div>
+</div>
