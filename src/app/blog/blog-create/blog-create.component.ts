@@ -27,11 +27,14 @@ export class BlogCreateComponent implements OnInit, OnDestroy {
 	}
 
 	editBlog() {
+		if (this.title === "" || this.content === "") {
+			alert("Title or Content Should not be Empty!");
+			return;
+		}
 		this.blogApiService
 			.editBlog(this.title, this.content, this.tags, this.blogDataService.blogId)
 			.subscribe(
 				(data: any) => {
-					console.log(data);
 					this.router.navigate([`/view_blog/${this.blogDataService.blogId}`]);
 				},
 				(err) => {
@@ -40,9 +43,12 @@ export class BlogCreateComponent implements OnInit, OnDestroy {
 			);
 	}
 	addBlog() {
+		if (this.title === "" || this.content === "") {
+			alert("Title or Content Should not be Empty!");
+			return;
+		}
 		this.blogApiService.addBlog(this.title, this.content, this.tags).subscribe(
 			(data: any) => {
-				console.log(data);
 				this.router.navigate(["/home"]);
 			},
 			(err) => {
@@ -52,7 +58,6 @@ export class BlogCreateComponent implements OnInit, OnDestroy {
 	}
 
 	addNewTag() {
-		console.log(this.newTag);
 		this.tags.push(this.newTag);
 		this.newTag = "";
 	}

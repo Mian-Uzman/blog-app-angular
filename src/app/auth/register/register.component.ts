@@ -14,11 +14,14 @@ export class RegisterComponent implements OnInit {
 	email: string = "";
 	password: string = "";
 	registerError = false;
+	loading = false;
 
 	ngOnInit(): void {}
 
 	register() {
 		this.registerError = false;
+		this.loading = true;
+
 		this.authService.registerUser(this.name, this.email, this.password).subscribe(
 			(data: any) => {
 				this.router.navigate(["login"]);
@@ -26,6 +29,10 @@ export class RegisterComponent implements OnInit {
 			(err) => {
 				this.registerError = true;
 				console.log(err);
+				this.loading = false;
+			},
+			() => {
+				this.loading = false;
 			}
 		);
 	}

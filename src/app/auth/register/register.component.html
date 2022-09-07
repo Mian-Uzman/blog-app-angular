@@ -32,7 +32,15 @@
 				[(ngModel)]="password" /><i class="validation"><span></span><span></span></i>
 		</p>
 		<p>
-			<button id="register" (click)="register()">Register</button>
+			<button
+				id="register"
+				class="d-flex align-items-center justify-content-center"
+				(click)="register()">
+				Register
+				<div class="spinner-border text-light ms-3" role="status" *ngIf="loading">
+					<span class="visually-hidden">Loading...</span>
+				</div>
+			</button>
 		</p>
 	</form>
 	<div id="create-account-wrap">

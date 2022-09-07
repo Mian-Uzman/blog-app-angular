@@ -19,7 +19,6 @@ export class BlogPostUserComponent implements OnInit {
 		this.blogApiService.getUserBlogs().subscribe(
 			(data: any) => {
 				this.blogs = data.blogPosts;
-				console.log(this.blogs);
 				this.noBlogs = this.blogs.length === 0 ? true : false;
 			},
 			(err) => {

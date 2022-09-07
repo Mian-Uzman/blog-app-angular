@@ -43,7 +43,6 @@ export class BlogViewComponent implements OnInit {
 				this.authorDetail = data.blogPosts[0].authorDetail.name;
 				this.postedAt = data.blogPosts[0].postedAt;
 				this.dateArray = this.postedAt.split("T");
-				console.log(this.dateArray);
 
 				this.blogPostId = data.blogPosts[0]._id;
 				this.comments = data.blogPosts[0].comments;
@@ -82,11 +81,9 @@ export class BlogViewComponent implements OnInit {
 		);
 	}
 	deleteComment(commentId: string) {
-		// console.log(commentId);
 		this.blogApiService.deleteComment(this.blogPostId, commentId).subscribe(
 			(data: any) => {
 				this.getSingleBlog(this.blogPostId);
-				this.newComment = "";
 			},
 			(err) => {
 				console.log(err);
