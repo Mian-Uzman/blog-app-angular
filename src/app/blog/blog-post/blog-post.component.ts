@@ -9,7 +9,7 @@ export class BlogPostComponent implements OnInit {
 	@Input() title = "";
 	@Input() content = "";
 	@Input() author = "";
-	@Input() postedAt = "";
+	@Input() postedAt: Date = new Date();
 	@Input() blogId = "";
 	@Input() comments = [];
 	@Input() tags = [];

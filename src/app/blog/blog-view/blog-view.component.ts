@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { AuthService } from "src/app/services/auth.service";
 import { BlogApiService } from "src/app/services/blog-api.service";
 import { BlogDataService } from "src/app/services/blog-data.service";
 
@@ -25,11 +24,10 @@ export class BlogViewComponent implements OnInit {
 	title = "";
 	content = "";
 	authorDetail = "";
-	postedAt = "";
-	dateArray: string[] = [];
+	postedAt: Date = new Date();
+
 	blogPostId = "";
 	showButtons = false;
-	showButtonsComments = false;
 	comments: any = [];
 	tags: any = [];
 	newComment: string = "";
@@ -42,15 +40,11 @@ export class BlogViewComponent implements OnInit {
 				this.content = data.blogPosts[0].content;
 				this.authorDetail = data.blogPosts[0].authorDetail.name;
 				this.postedAt = data.blogPosts[0].postedAt;
-				this.dateArray = this.postedAt.split("T");
-
 				this.blogPostId = data.blogPosts[0]._id;
 				this.comments = data.blogPosts[0].comments;
 				this.tags = data.blogPosts[0].tags;
-				// console.log(this.comments[0]);
 
 				this.showButtons = this.userId == data.blogPosts[0].authorDetail._id ? true : false;
-				// this.showButtonsComments = this.userId == data.blogPosts[0].authorDetail._id ? true : false;
 			},
 			(err) => {
 				console.log(err);

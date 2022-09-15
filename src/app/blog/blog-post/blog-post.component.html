@@ -5,14 +5,16 @@
 		<div class="d-flex flow-row justify-content-between align-items-end mt-3">
 			<div class="d-flex flex-column">
 				<p class="card-subtitle mt-3 mb-1 text-muted fw-light postedAt">
-					Posted By:
+					Author:
 					<span class="fw-bold" style="color: #253c78">{{ author }}</span>
 				</p>
 				<p class="card-subtitle mb-4 text-muted fw-light">
 					Posted At:
-					<span class="fw-bold" style="color: #253c78">{{ postedAt.split("T")[0] }}</span>
+					<span class="fw-bold" style="color: #253c78">{{
+						postedAt | date: "medium"
+					}}</span>
 				</p>
-				<p class="text-muted mb-4">Comments: {{ comments.length }}</p>
+				<p class="text-muted mb-4">Comments: {{ comments.length || "No Comments" }}</p>
 				<div class="d-flex gap-2">
 					<h5 class="tag-heading mt-1">Tags:</h5>
 					<p *ngFor="let tag of tags" class="tag-text">{{ tag }}</p>

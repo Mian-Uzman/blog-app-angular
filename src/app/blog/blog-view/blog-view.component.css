@@ -81,5 +81,11 @@ input {
 }
 
 .comment-content {
-    margin: 0.25rem 0rem;
+    margin: 0.5rem 0rem;
+}
+
+.comment-postedat {
+    font-size: 0.75rem;
+    margin: 0;
+    color: #53a2be
 }
